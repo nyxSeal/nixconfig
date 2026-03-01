@@ -10,4 +10,4 @@ git commit -m "$commitMessage"
 
 git pull --rebase
 
-git push --set-upstream origin untested
+git push --set-upstream origin main
