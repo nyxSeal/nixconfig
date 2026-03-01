@@ -1,21 +1,13 @@
 
-{ config, lib, pkgs, inputs, global,  ... }: {
+{ config, lib, pkgs, inputs,  ... }: {
 
 
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./defaults.nix
       inputs.home-manager.nixosModules.home-manager
     ];
-
-
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      ${global.mainUser} = import ./home.nix;
-    };
-  };
 
 
 
@@ -73,11 +65,11 @@
 
 
 
-  networking.hostName = "${global.hostName}";
+  networking.hostName = "${mainUser.option}";
 
 
 
-  services.openssh.settings.AllowUsers = [ "${global.backupUser}" ];
+  services.openssh.settings.AllowUsers = [ "${allowedSSHUser.option}" ];
 
 
 
@@ -113,7 +105,7 @@
 
 
 
-  users.users.${global.mainUser} = { # define a user account
+  users.users.${mainUser.option} = { # define a user account
     isNormalUser = true;
     extraGroups = [ "wheel" "git" "networkmanager"];
 

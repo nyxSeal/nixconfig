@@ -1,4 +1,4 @@
-{config, pkgs, global, ...}: {
+{config, pkgs, ...}: {
 
 
 
@@ -95,7 +95,7 @@
       Host main
         Hostname 192.168.1.185
         Port 5000
-        User ${global.mainUser}
+        User nyxSeal
         IdentityFile ~/.ssh/id_ed25519_main
         IdentitiesOnly yes
     ";
@@ -108,8 +108,8 @@
     enable = true;
 
     config = {
-      user.name = "${global.gitUsername}";
-      user.email = "${global.gitEmail}";
+      user.name = "${gitUsername.option}";
+      user.email = "${gitEmail.option}";
       #commit.gpgsign = true;
     };
 

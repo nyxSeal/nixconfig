@@ -29,7 +29,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
-            users."${global.mainUser}" = import ./home.nix;
+            users."${mainUser.option}" = import ./kde-config-home.nix;
           };
 
         ];

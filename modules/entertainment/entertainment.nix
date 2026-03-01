@@ -1,4 +1,4 @@
-{pkgs, lib, config, ...}: {
+{pkgs, lib, config, inputs, ...}: {
 
 
   options = {
@@ -6,6 +6,13 @@
   };
 
   config = lib.mkIf config.entertainment.enable {
+
+    imports = [ inputs.home-manager.nixosModules.home-manager ];
+
+    home-manager = {
+     extraSpecialArgs = { inherit inputs; };
+     users."${mainUser.option}" = import ./entertainment-home.nix
+    };
 
     programs.steam = {
       enable = true;

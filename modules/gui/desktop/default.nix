@@ -2,7 +2,7 @@
 
   imports = [
     ./kde/kde.nix
-    ./kde/plasma-manager.nix
+    ./kde/plasma-manager-input.nix
     ./niri/niri.nix
   ];
 

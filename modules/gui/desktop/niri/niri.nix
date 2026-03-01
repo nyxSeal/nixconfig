@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, config, ...}: {
 
   options = {
     niri.enable = lib.mkEnableOption "enable niri";

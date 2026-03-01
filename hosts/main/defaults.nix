@@ -5,9 +5,6 @@
 
     imports = [
       ./../../modules/modulebundle.nix
-      ./../../default.nix
-      ./../../globalVars.nix
-      ./configuration.nix
     ];
 
     entertainment.enable = lib.mkForce true;

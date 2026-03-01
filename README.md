@@ -10,8 +10,16 @@ The issues tab is what I use to keep track of things I want to add to my config.
 2. Run the /scripts/setup.sh file using zsh
 
 
-## Other
+## Configuration
 
+- Change the values in globalVars.nix to your liking
+- Change or add hosts to flake.nix 
+
+## Updating
+
+- Run sudo nixos-rebuild switch --flake .#<host>, and replace <host> with the host you want to install (ie. sudo nixos-rebuild switch --flake .#nyxSeal
+
+## Other
 
 To create the ASCII titles in my configs: https://patorjk.com/software/taag/#p=display&f=Big+Money-ne
 
