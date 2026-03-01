@@ -15,44 +15,35 @@
 
   outputs = { self, nixpkgs, home-manager, config, ...  } @inputs: {
 
-    imports = [ ./globalvars.nix ];
-
     nixosConfigurations = {
+
 
       nixy = nixpkgs.lib.nixosSystem {
         systems = [ "x86_64-linux" ]; 
         modules = [
           ./hosts/main/configuration.nix
-          ./hosts/main/default-flake.nix
+          ./globalvars.nix
         ];
+        specialArgs = {
+          inherit inputs;
+        };
       };
+
+
       scout = nixpkgs.lib.nixosSystem {
         systems = [ "x86_64-linux"];
         modules = [
           ./hosts/backup/configuration.nix
+          ./globalvars.nix
         ];
-      };
-
-    };
- 
-
-    specialArgs = { 
-      inherit inputs;
-    };
-
-    home-manager.nixosModules.home-manager =
-    {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        home = {
-          username = "${config.mainUser}";
-          homeDirectory = "/home/${config.mainUser}";
-          stateVersion = "25.11";
+        specialArgs = {
+          inherit inputs;
         };
-        programs.home-manager.enable = true;
       };
-    };
+
+
+    }; 
+
   };
 
 

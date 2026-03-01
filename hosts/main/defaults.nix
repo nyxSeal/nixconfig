@@ -1,16 +1,6 @@
 {config, lib, config, ...}: { 
 
-  #vars = {
-  #  mainUser = "nyxSeal";
-  #  hostName = "nixy";
-  #  gitUsername = "nyxSeal";
-  #  gitEmail = "litigate_putdown.zigzagged008@slmails.com";
-  #  pathToDirectory = ".nixconfig";
-  #  allowedSSHUser = "scattergun";
-  #
-  #in {
-  #  inherit vars;
-  #};
+
 
   mainUser = "nyxSeal";
   hostName = "nixy";
@@ -28,6 +18,7 @@
   gui.enable = lib.mkForce true;
   gui.option = lib.mkForce "kde";
   basicservices.enable = lib.mkForce true;
+  home-manager.enable = lib.mkForce true;
 
 
 
