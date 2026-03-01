@@ -92,8 +92,8 @@
     enable = true;
 
     config = {
-      user.name = "${lib.gitUsername}";
-      user.email = "${lib.gitEmail}";
+      user.name = "${config.gitUsername}";
+      user.email = "${config.gitEmail}";
       #commit.gpgsign = true;
     };
 

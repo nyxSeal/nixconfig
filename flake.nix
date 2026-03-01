@@ -1,5 +1,5 @@
 {
-  description = "The default flake used in all configurations and calls the hosts";
+  description = "declares all inputs and hosts via flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -9,11 +9,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "nixpkgs";
+    };
+
   };
 
 
 
-  outputs = { self, nixpkgs, home-manager, config, ...  } @inputs: {
+  outputs = { self, nixpkgs, home-manager, ...  } @inputs: {
 
     nixosConfigurations = {
 

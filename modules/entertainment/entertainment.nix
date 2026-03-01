@@ -1,4 +1,4 @@
-{pkgs, lib, config, inputs, vars, ...}: {
+{pkgs, lib, config, inputs, ...}: {
 
 
   options = {
@@ -11,7 +11,7 @@
 
     home-manager = {
      extraSpecialArgs = { inherit inputs; };
-     users."${vars.mainUser}" = import ./entertainment-home.nix
+     users."${config.mainUser}" = import ./entertainment-home.nix
     };
 
     programs.steam = {
