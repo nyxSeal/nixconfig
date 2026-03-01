@@ -15,7 +15,7 @@
 
 
 
-    perSystem = {pkgs, inputs, self', global, config, lib, ... }: {
+    outputs = {pkgs, inputs, config, lib, vars, ... }: {
 
       options = {
         plasma-manager.enable = lib.mkEnableOption "enable plasma-manager";
@@ -26,10 +26,10 @@
 
         modules = [
 
-          home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager = 
           {
             home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
-            users."${mainUser.option}" = import ./kde-config-home.nix;
+            users."${vars.mainUser}" = import ./kde-config-home.nix;
           };
 
         ];

@@ -1,11 +1,11 @@
 
-{ config, lib, pkgs, inputs,  ... }: {
+{ config, lib, pkgs, inputs, vars, ... }: {
 
 
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./defaults.nix
+      ./default-flake.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -65,11 +65,11 @@
 
 
 
-  networking.hostName = "${mainUser.option}";
+  networking.hostName = "${vars.hostName}";
 
 
 
-  services.openssh.settings.AllowUsers = [ "${allowedSSHUser.option}" ];
+  services.openssh.settings.AllowUsers = [ "${vars.allowedSSHUser}" ];
 
 
 
@@ -80,7 +80,6 @@
 
 
   services = {
-    printing.enable = true; # Enables CUPS
 
     pipewire = {
       enable = true;
@@ -105,7 +104,7 @@
 
 
 
-  users.users.${mainUser.option} = { # define a user account
+  users.users.${MAINUSER} = { # define a user account
     isNormalUser = true;
     extraGroups = [ "wheel" "git" "networkmanager"];
 

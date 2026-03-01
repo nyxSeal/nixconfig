@@ -1,4 +1,4 @@
-{ config, pkgs, global, ... }:
+{ config, pkgs, global, vars, ... }:
 
 {
 
@@ -8,11 +8,11 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    "~/.config/vesktop/settings/quickCss.css".source = "${pathToDirectory}"/dotfiles/vesktop/quickCss.css;
-    "~/.config/vesktop/settings/settings.json".source = "${pathToDirectory}"/dotfiles/vesktop/settings.json;
-    "~/.local/share/PrismLauncher/skins".source = "${pathToDirectory}"/dotfiles/prismlauncher/skins;
-    "~/.local/share/PrismLauncher/instances".source = "${pathToDirectory}"/dotfiles/prismlauncher/instances;
-    "~/steam/steamapps/common/'Deep Rock Galactic'".source = "${pathToDirectory}"/dotfiles/steam/drg;
+    "~/.config/vesktop/settings/quickCss.css".source = "${vars.pathToDirectory}"/dotfiles/vesktop/quickCss.css;
+    "~/.config/vesktop/settings/settings.json".source = "${vars.pathToDirectory}"/dotfiles/vesktop/settings.json;
+    "~/.local/share/PrismLauncher/skins".source = "${vars.pathToDirectory}"/dotfiles/prismlauncher/skins;
+    "~/.local/share/PrismLauncher/instances".source = "${vars.pathToDirectory}"/dotfiles/prismlauncher/instances;
+    "~/steam/steamapps/common/'Deep Rock Galactic'".source = "${vars.pathToDirectory}"/dotfiles/steam/drg;
 
 
     # # You can also set the file content immediately.
