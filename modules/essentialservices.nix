@@ -1,4 +1,4 @@
-{config, pkgs, vars, ...}: {
+{config, pkgs, ...}: {
 
 
 
@@ -36,7 +36,7 @@
  
     shellAlias = {
       rewrite = "sudo nixos-rebuild switch --flake .#nyxSeal";
-      saveGit = "zsh ${vars.pathToDirectory}/scripts/gitSave.sh"
+      saveGit = "zsh $HOME/.nixconfig/scripts/gitSave.sh"
     };
 
     histSize = 10000;
@@ -92,8 +92,8 @@
     enable = true;
 
     config = {
-      user.name = "${vars.gitUsername}";
-      user.email = "${vars.gitUsername}";
+      user.name = "${lib.gitUsername}";
+      user.email = "${lib.gitEmail}";
       #commit.gpgsign = true;
     };
 

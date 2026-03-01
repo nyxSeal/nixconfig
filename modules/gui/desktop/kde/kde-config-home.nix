@@ -1,14 +1,14 @@
-{ config, pkgs, vars, ... }:
+{ config, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  let
-    user = "nyxSeal";
-  in {
-    home.username = "${vars.mainUser}";  # need to integrate these two with the global argument and the global.mainUser variable
-    home.homeDirectory = "/home/${vars.mainUser}";
-  };
+  #let
+  #  user = "nyxSeal";
+  #in {
+  #  home.username = "${mainUser}";  # need to integrate these two with the global argument and the global.mainUser variable
+  #  home.homeDirectory = "/home/${vars.mainUser}";
+  #};
 
 
 

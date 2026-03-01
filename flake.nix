@@ -9,19 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
   };
 
 
 
-  outputs = { self, nixpkgs, home-manager, vars, ...  } @inputs: let
-    homeManagerOption = 
-  "home-manager.nixosModules.home-manager = 
-  
-  ";
-  
-  in  {
+  outputs = { self, nixpkgs, home-manager, config, ...  } @inputs: {
+
+    imports = [ ./globalvars.nix ];
 
     nixosConfigurations = {
 
@@ -29,14 +23,13 @@
         systems = [ "x86_64-linux" ]; 
         modules = [
           ./hosts/main/configuration.nix
-          #./globalVars.nix
+          ./hosts/main/default-flake.nix
         ];
       };
       scout = nixpkgs.lib.nixosSystem {
         systems = [ "x86_64-linux"];
         modules = [
           ./hosts/backup/configuration.nix
-          #./globalVars.nix
         ];
       };
 
@@ -53,8 +46,8 @@
         useGlobalPkgs = true;
         useUserPackages = true;
         home = {
-          username = "${vars.mainUser}";
-          homeDirectory = "/home/${vars.mainUser}";
+          username = "${config.mainUser}";
+          homeDirectory = "/home/${config.mainUser}";
           stateVersion = "25.11";
         };
         programs.home-manager.enable = true;

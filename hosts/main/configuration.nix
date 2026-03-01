@@ -1,11 +1,11 @@
 
-{ config, lib, pkgs, inputs, vars, ... }: {
+{ config, lib, pkgs, inputs, ... }: {
 
 
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./default-flake.nix
+      ./defaults.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -65,11 +65,11 @@
 
 
 
-  networking.hostName = "${vars.hostName}";
+  networking.hostName = "${config.hostName}";
 
 
 
-  services.openssh.settings.AllowUsers = [ "${vars.allowedSSHUser}" ];
+  services.openssh.settings.AllowUsers = [ "${config.allowedSSHUsers}" ];
 
 
 
@@ -104,7 +104,7 @@
 
 
 
-  users.users.${MAINUSER} = { # define a user account
+  users.users.${config.mainUser} = { # define a user account
     isNormalUser = true;
     extraGroups = [ "wheel" "git" "networkmanager"];
 
