@@ -1,0 +1,23 @@
+@import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');
+
+/* Hide nameplates */
+[style^="background: linear-gradient(90deg"]:has([src*="/nameplates/"]) { display: none; }
+[class*="dm_"]:has([class*="linkPlated_"]) {
+    & [class*="linkPlated_"] { padding-right: var(--space-16); }
+    & [class*="closeButtonPlated_"] {
+        opacity: 0.7;
+        &:hover { opacity: 1; }
+        & [class^="innerCloseButtonPlated"] {
+            opacity: unset; 
+            background: none;
+            & svg {
+                color: inherit;
+                &:is(:hover, :focus-within) { color: var(--interactive-hover); }
+            }
+        }
+    }
+}
+//.chipletContainerInner__10651 {
+//  display:none;
+//}
+class="channel_"

@@ -1,8 +1,5 @@
 #! /bin/zsh
 
-cd ~/.nixconfig
-
-
 git add -v ~/.nixconfig/*
 git add -v ~/.nixconfig/.gitignore
 
