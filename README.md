@@ -1,3 +1,8 @@
+# Huge work in progress
+Lots of things here don't work as intended (check issues tab for more)
+Even this README isn't finished
+
+
 # My NixOS config
 
 This is my personal NixOS config. I don't plan on anyone else using this (though if you want to you can). 
