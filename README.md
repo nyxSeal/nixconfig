@@ -38,8 +38,11 @@ The issues tab is what I use to keep track of things I want to add to my config.
  
   
 - ```config.systemd-boot.enable``` (default = false)
-  - Enables the systemd-boot bootloader (will add more bootloaders in the future)
- 
+  - Enables the systemd-boot bootloader (only for UEFI systems)
+
+
+- ```config.grub-boot.enable``` (default = false)
+  - Enables the grub bootloader (UEFI and BIOS systems)
   
 
 **The rest**
