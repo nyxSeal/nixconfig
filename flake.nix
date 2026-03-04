@@ -42,7 +42,7 @@
         modules = [
           inputs.home-manager.nixosModules.home-manager
           ./hosts/backup/default.nix
-          #./globalvars.nix
+          ./globalvars.nix
         ];
         specialArgs = {
           inherit inputs;
