@@ -5,7 +5,7 @@
 
 
 
-  environment.systemPackages = [
+  users.users."${config.mainUser}".packages = [
     pkgs.wget # downloading tool often a default in linux
     pkgs.vim # very useful text editor
     pkgs.btop # tui system monitor
