@@ -5,7 +5,7 @@
     floorp.enable = lib.mkEnableOption "enables floorp browser";
   };
 
-  config.lib.mkMerge = [
+  config = lib.mkMerge [
 
     (lib.mkIf config.librewolf.enable {
       users.users."${config.mainUser}".packages = [ pkgs.librewolf ];

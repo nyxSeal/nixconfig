@@ -7,7 +7,7 @@
     ./gui/desktop/default.nix
     ./gui/desktop/kde/kde.nix
     ./gui/desktop/niri/niri.nix
-    ./essentials/home-manager-setup.nix
+    ./home-manager-setup.nix
     ./essentials/zsh.nix
     ./essentials/system-services.nix
     ./essentials/sound.nix
@@ -36,23 +36,5 @@
 
   config.zsh.enable = lib.mkDefault true;
   config.man.enable = lib.mkDefault true;
-
-
-
-
-  #options.gui.option = lib.mkOption {
-  #  type = lib.type.enum ["kde" "niri" ];
-  #  description = "which gui to use";
-  #};
-
-  #config.lib.mkMerge = [
-  #  (lib.mkIf (config.gui.option == "kde") {
-  #    kde.enable = true;
-  #  })
-
-  #  (lib.mkIf (config.gui.option == "niri") {
-  #    niri.enable = true;
-  #  })
-  #];
 
 }

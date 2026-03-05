@@ -2,9 +2,9 @@
 
   options.home-manager.enable = lib.mkEnableOption "enable home manager";
 
-  config = lib.mkIf config.home-manager.enable {
+  config = lib.mkIf config.home-manager.enable (
 
-    lib.mkMerge = [
+    lib.mkMerge [
 
       (lib.mkIf config.kde.enable {
         home-manager = {
@@ -19,22 +19,25 @@
         };
       })
 
-    ];
-    home-manager = {
+    
+      {
+        home-manager = {
 
-      useGlobalPkgs = true;
-      useUserPackages = true;
+          useGlobalPkgs = true;
+          useUserPackages = true;
 
 
 
-      users."${config.mainUser}" = {
-        home = {
-          username = "${config.mainUser}";
-          homeDirectory = "/home/${config.mainUser}";
-          stateVersion = "25.11";
+          users."${config.mainUser}" = {
+            home = {
+              username = "${config.mainUser}";
+              homeDirectory = "/home/${config.mainUser}";
+              stateVersion = "25.11";
+            };
+          };
+
         };
-      };
-
-    };
-  };
+      }
+    ]
+  );
 }
