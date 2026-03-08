@@ -11,7 +11,7 @@
   };
 
   config = lib.mkMerge [
-    (lib.mkIf config.brightness.brightnessctl.enable {
+    (lib.mkIf config.brightness.ddcutil.enable {
       services.ddccontrol = {
         enable = true;
         package = pkgs.ddcutil;
