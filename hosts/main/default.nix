@@ -17,10 +17,10 @@
 
     # gui-related
     entertainment.enable = lib.mkForce true;
-    gui.enable = lib.mkForce true;
+    #gui.enable = lib.mkForce true;
     kde.enable = lib.mkForce true;
     niri.enable = lib.mkForce true;
-    home-manager.enable = lib.mkForce true;
+    #home-manager.enable = lib.mkForce true;
     guiapps.enable = lib.mkForce true;
     librewolf.enable = lib.mkForce true;
 

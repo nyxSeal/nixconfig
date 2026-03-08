@@ -27,6 +27,26 @@ The issues tab is what I use to keep track of things I want to add to my config.
   - When updating, make sure to change what host you are updating (the # at the end)
     - You can also add an alias in modules/essentials/zsh.nix to update that specific host (have to reboot before aliases are updated)
 
+BRIGHTNESS CONTROL
+
+- EXTERNAL MONITORS
+
+  - KDE
+    - KDE has a brightness service called PowerDevil, so none of these are needed.
+    - If it stops working, try running systemctl --user restart plasma-powershell
+
+  - ddcutil
+    - set ```brightness.ddcutil.enable``` to ```true```
+    - ```ddcutil detect``` to detect monitors
+    - ```ddcutil -d <display number> set 10 <brightness percentage>``` to set brightness, use + or - to change it
+- LAPTOP/INTERNAL MONITORS
+  - brightnessctl
+    - set ```brightness.brightnessctl.enable``` to ```true```
+    - ```brightnessctl``` to see current, maximum, and minimum brightness
+    - ```brightnessctl set <brightness>``` to set brightness to value
+
+
+
 ### Options
 
 - Note: All options are of type *bool* unless stated otherwise
@@ -127,6 +147,12 @@ System:
   - Enables extra options for AMD gpus
   - Requires: an AMD gpu
 
+- ```brightness.brightnessctl.enable``` (default = false)
+  - Enables the brightnessctl manager for internal display brightness management
+
+- ```brightness.ddcutil.enable``` (default = false)
+  - Enables the ddcutil manager for external display brightness management
+
 
 
 
@@ -174,6 +200,9 @@ Suites of tools or apps:
 - ```entertainment.enable``` (default = false)
   - Enables games and game-related apps or features (steam, vesktop, discord, prismlauncher)
   - Requires: ```home-manager.enable```, ```nixpkgs.config.AllowUnfree```, A desktop environment or window manager
+
+Do not touch the following (enabled when needed):
+- 
 
 
 ## Updating

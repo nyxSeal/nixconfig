@@ -10,6 +10,8 @@
   };
 
   config = lib.mkIf config.entertainment.enable {
+    home-manager.enable = lib.mkOverride 500 true;
+
     programs.steam = {
       enable = true;
       #remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

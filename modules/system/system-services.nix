@@ -12,10 +12,7 @@
     pkgs.btop # tui system monitor
     pkgs.fastfetch # up-to-date neofetch
     pkgs.borgbackup # backup system
-    pkgs.brightnessctl # brightness control
   ];
-
-
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

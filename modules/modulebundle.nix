@@ -5,38 +5,78 @@
   ...
 }: {
   imports = [
+    ./home-manager-setup.nix
+    ./development.nix
+
     ./entertainment/entertainment.nix
+
     ./gui/applications/applications.nix
     ./gui/applications/browsers.nix
     ./gui/desktop/default.nix
     ./gui/desktop/kde/kde.nix
     ./gui/desktop/niri/niri.nix
-    ./home-manager-setup.nix
-    ./essentials/zsh.nix
-    ./essentials/system-services.nix
-    ./essentials/sound.nix
-    ./essentials/development.nix
-    ./essentials/amd-gpu.nix
-    ./essentials/man.nix
-    ./essentials/networking.nix
-    ./essentials/security.nix
+
     ./partitions/bootloader.nix
     ./partitions/swap.nix
+
+    ./system/amd-gpu.nix
+    ./system/brightness.nix
+    ./system/man.nix
+    ./system/networking.nix
+    ./system/security.nix
+    ./system/sound.nix
+    ./system/system-services.nix
+    ./system/zsh.nix
   ];
 
-  config.entertainment.enable = lib.mkDefault false;
-  config.guiapps.enable = lib.mkDefault false;
-  config.librewolf.enable = lib.mkDefault false;
-  config.floorp.enable = lib.mkDefault false;
-  config.gui.enable = lib.mkDefault false;
-  config.home-manager.enable = lib.mkDefault false;
-  config.kde.enable = lib.mkDefault false;
-  config.niri.enable = lib.mkDefault false;
-  config.sound-driver.enable = lib.mkDefault false;
-  config.swapspace.enable = lib.mkDefault false;
-  config.zswap.enable = lib.mkDefault false;
-  config.amd-gpu.enable = lib.mkDefault false;
+  config = {
+    # DEFAULTS
 
-  config.zsh.enable = lib.mkDefault true;
-  config.man.enable = lib.mkDefault true;
+    # ./home-manager.setup.nix:
+    home-manager.enable = lib.mkDefault false;
+
+    #./development.nix:
+
+    #./entertainment/entertainment.nix:
+    entertainment.enable = lib.mkDefault false;
+
+    #./gui/applications/applications.nix:
+    guiapps.enable = lib.mkDefault false;
+
+    #./gui/applications/browsers.nix:
+    librewolf.enable = lib.mkDefault false;
+    floorp.enable = lib.mkDefault false;
+
+    #./gui/desktop/default.nix:
+    gui.enable = lib.mkDefault false;
+
+    #./gui/desktop/kde/kde.nix:
+    kde.enable = lib.mkDefault false;
+
+    #./gui/desktop/niri/niri.nix:
+    niri.enable = lib.mkDefault false;
+
+    #./partitions/bootloader.nix:
+    bootloader.enum = lib.mkDefault "null";
+
+    #./partions/swap.nix:
+    swapspace.enable = lib.mkDefault false;
+    zswap.enable = lib.mkDefault false;
+
+    #./system/amd-gpu.nix:
+    amd-gpu.enable = lib.mkDefault false;
+
+    #./system/brightness.nix
+    brightness.brightnessctl.enable = lib.mkDefault false;
+    brightness.ddcutil.enable = lib.mkDefault false;
+
+    #./system/man.nix:
+    man.enable = lib.mkDefault true;
+
+    #./system/sound.nix:
+    sound-driver.enable = lib.mkDefault false;
+
+    #./system/zsh.nix:
+    zsh.enable = lib.mkDefault true;
+  };
 }

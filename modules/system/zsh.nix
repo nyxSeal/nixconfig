@@ -29,8 +29,7 @@
       };
 
       shellAliases = {
-        rewriteNixy = "sudo nixos-rebuild switch --flake ~/.nixconfig#nixy";
-        saveGit = "zsh ~/.nixconfig/scripts/gitSave.sh";
+        rewriteNixy = "git add -v -A ~/.nixconfig/* ; sudo nixos-rebuild switch --flake ~/.nixconfig#nixy && zsh ~/.nixconfig/scripts/rewrite.sh";
       };
 
       histSize = 10000;
