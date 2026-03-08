@@ -22,6 +22,12 @@
         };
       })
 
+      (lib.mkIf config.niri.enable {
+        home-manager = {
+          users."${config.mainUser}" = import ./gui/desktop/niri/niri-config-home.nix;
+        };
+      })
+
       {
         home-manager = {
           useGlobalPkgs = true;
