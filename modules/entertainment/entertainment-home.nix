@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  global,
   ...
 }: {
   home.file = {
@@ -10,11 +9,25 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    #"~/.config/vesktop/settings/quickCss.css".source = .nixconfig/dotfiles/vesktop/quickCss.css;
-    #"~/.config/vesktop/settings/settings.json".source = .nixconfig/dotfiles/vesktop/settings.json;
-    #"~/.local/share/PrismLauncher/skins".source = .nixconfig/dotfiles/prismlauncher/skins;
-    #"~/.local/share/PrismLauncher/instances".source = .nixconfig/dotfiles/prismlauncher/instances;
-    #"~/steam/steamapps/common/'Deep Rock Galactic'".source = .nixconfig/dotfiles/steam/drg;
+    ".config/vesktop/settings" = {
+      source = ./../../dotfiles/vesktop;
+      recursive = true;
+    };
+
+    ".local/share/PrismLauncher/skins" = {
+      source = ./../../dotfiles/prismlauncher/skins;
+      recursive = true;
+    };
+
+    ".local/share/PrismLauncher/instances" = {
+      source = ./../../dotfiles/prismlauncher/instances;
+      recursive = true;
+    };
+
+    "steam/steamapps/common/Deep Rock Galactic" = {
+      source = ./../../dotfiles/steam/drg;
+      recursive = true;
+    };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
