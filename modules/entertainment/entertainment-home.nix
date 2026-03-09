@@ -1,8 +1,11 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
+  #imports = [ ./../../globalvars.nix ];
+
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -10,22 +13,22 @@
     # ".screenrc".source = dotfiles/screenrc;
 
     ".config/vesktop/settings" = {
-      source = ./../../dotfiles/vesktop;
+      lib.makeSymlinkOutOfStore = "/home/${config.home.username}/dotfiles/vesktop";
       recursive = true;
     };
 
-    ".local/share/PrismLauncher/skins" = {
-      source = ./../../dotfiles/prismlauncher/skins;
+    ".local/share/PrismLauncher.skins" = {
+      lib.makeSymlinkOutOfStore = "/home/${config.home.username}/dotfiles/prismlauncher/skins";
       recursive = true;
     };
 
     ".local/share/PrismLauncher/instances" = {
-      source = ./../../dotfiles/prismlauncher/instances;
+      lib.makeSymlinkOutOfStore = "/home/${config.home.username}/dotfiles/prismlauncher/instances";
       recursive = true;
     };
 
     "steam/steamapps/common/Deep Rock Galactic" = {
-      source = ./../../dotfiles/steam/drg;
+      lib.makeSymlinkOutOfStore = "/home/${config.home.username}/dotfiles/steam/drg";
       recursive = true;
     };
 
@@ -53,6 +56,5 @@
   #  /etc/profiles/per-user/nyxSeal/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
   };
 }
