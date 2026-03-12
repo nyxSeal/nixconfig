@@ -16,11 +16,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  system.autoUpgrade = {
-    enable = true;
-    dates = "weekly";
-  };
-
   nix.gc = {
     automatic = true;
     dates = "weekly";
