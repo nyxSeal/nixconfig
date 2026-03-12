@@ -10,6 +10,7 @@
 
   config = lib.mkIf config.zsh.enable {
     system.userActivationScripts.zshrc = "touch .zshrc";
+    users.defaultUserShell = "/bin/zsh";
 
     programs.zsh = {
       enable = true;
