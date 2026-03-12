@@ -9,4 +9,9 @@
     sudo.execWheelOnly = true;
     protectKernelImage = true;
   };
+
+  users = {
+    mutableUsers = false;
+    users.root.hashedPassword = "!";
+  };
 }
