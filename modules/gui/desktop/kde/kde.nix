@@ -27,6 +27,8 @@
       kwin-x11 # x window manager
       spectacle # screenshot tool, installed globally
       ark # archive manager, installed globally
+      elisa # music player
+      discover # gui flatpak app installer
     ];
   };
 }
