@@ -30,7 +30,7 @@
       };
 
       shellAliases = {
-        rewrite = "zsh ~/.nixconfig/scripts/rebuild.sh";
+        rebuild = "zsh ~/.nixconfig/scripts/rebuild.sh";
       };
 
       histSize = 10000;
