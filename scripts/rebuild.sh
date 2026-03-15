@@ -1,12 +1,26 @@
 #! /bin/zsh
 
+git add -v -A ~/.nixconfig/*
+
+echo -n "Rebuild system? (enter 'true' if true): "
+read -r rebuildOrNot
+
+if [[ "$rebuildOrNot" == "true" ]]; then
+  sudo nixos-rebuild switch --flake ~/.nixconfig#
+else
+  echo "Skipping rebuild..."
+fi
+
 cd ~/.nixconfig
 
+echo "Formatting nix files..."
 alejandra ~/.nixconfig
 
 git add ~/.nixconfig
 
 git status
+
+git diff untested
 
 echo -n "Commit? (enter 'true' if true): "
 read -r commitOrNot
@@ -25,7 +39,7 @@ else
 fi
 
 
-
+git diff untested main
 
 echo -n "Merge with main branch? (enter 'true' if true): "
 read -r mergeOrNot
