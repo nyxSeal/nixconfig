@@ -14,5 +14,5 @@ echo -n "press enter when done"
 read -r finishedKeyEntered
 wait
 
-git remote add origin github.com:nyxSeal/NixOS-Config.git
+git remote add origin github.com:nyxSeal/nixconfig.git
 
