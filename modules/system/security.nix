@@ -12,6 +12,7 @@
 
   users = {
     mutableUsers = false;
+    allowNoPasswordLogin = true;
     users.root.hashedPassword = "!";
   };
 }

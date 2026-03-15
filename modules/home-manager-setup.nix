@@ -16,11 +16,10 @@
         };
       })
 
-      (lib.mkIf config.entertainment.enable {
-        home-manager = {
-          users."${config.mainUser}" = import ./entertainment/entertainment-home.nix;
-        };
-      })
+      #(lib.mkIf config.entertainment.enable {
+      #  home-manager = {
+      #  };
+      #})
 
       (lib.mkIf config.niri.enable {
         home-manager = {
