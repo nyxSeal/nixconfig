@@ -6,8 +6,6 @@ alejandra ~/.nixconfig
 
 git add ~/.nixconfig
 
-git diff -U0
-
 git status
 
 echo -n "Commit? (enter 'true' if true): "
