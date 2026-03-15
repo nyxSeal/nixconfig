@@ -12,7 +12,7 @@
               type = "EF02"; # for grub MBR
             };
             ESP = {
-              size = "512MB";
+              size = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";
