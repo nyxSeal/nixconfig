@@ -36,7 +36,7 @@
           {
             environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
           }
-          ./hosts/main/default.nix
+          ./hosts/nixy/default.nix
         ];
         specialArgs = {
           inherit inputs;
@@ -50,7 +50,7 @@
           {
             environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
           }
-          ./hosts/backup/default.nix
+          ./hosts/scout/default.nix
         ];
         specialArgs = {
           inherit inputs;
