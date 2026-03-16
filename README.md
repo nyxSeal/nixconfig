@@ -29,14 +29,21 @@ After this, your system should be ready!
 
 ## Configuration
 
-- In each host directory, there is a default.nix file. That file declares what modules and options are enabled or disabled.
-- To add a host:
-  - Add an entry to the flake.nix file (the option on top is the host name, not the user)
-  - Add a directory in /hosts for that user, and create a default.nix file
-  - Import ../../modules/modulebundle.nix and ./hardware-configuration.nix
-  - Declare the required options and then change any of the other options (detailed below)
-  - When updating, make sure to change what host you are updating (the # at the end)
-    - You can also add an alias in modules/essentials/zsh.nix to update that specific host (have to reboot before aliases are updated)
+### Adding hosts
+- add a directory in ./hosts for that user
+- add an entry to the flake.nix file (the 'user' on top is the host name, not the user)
+  - copy and paste one of the other host entries, not any ISO entries
+  - change the ```system``` argument if needed
+- create a disko-config.nix file in the new ./hosts host directory
+    - declare the filesystem
+- create a default.nix file in the new ./hosts host directory
+    - declare required options listed below
+    - declare optional options listed below if you would like (dependency modules are handled automatically, do not change them)
+    - import ```../../modules/modulebundle.nix```, ```../../globalvars.nix```,  ```./hardware-configuration.nix```, and ```disko-config.nix```
+    - NOTE: do not declare options and packages below unless only required by that specific system and no other
+- install the system, pick 'y' when asked to generate hardware-configuratiion.nix
+
+
 
 BRIGHTNESS CONTROL
 
