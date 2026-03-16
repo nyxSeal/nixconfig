@@ -5,6 +5,8 @@
   ...
 }: {
 
+  users.defaultUserShell = pkgs.zsh;
+
   system.userActivationScripts.zshrc = "touch .zshrc";
 
   programs.zsh = {
