@@ -6,14 +6,25 @@ Even this README isn't finished
 
 # My NixOS config
 
-This is my personal NixOS config. I don't plan on anyone else using this (though if you want to you can). 
+This is my personal NixOS config. I don't recommend on anyone else using this, these are just to help me remember what to do. 
 
 The issues tab is what I use to keep track of things I want to add to my config.
 
 ## Installation
 
-1. I'll figure out how to import it
-2. Run the /scripts/setup.sh file using zsh
+1. boot a minimal NixOS live environment (via USB drive or smth)
+2. run ```nmtui``` and connect to Wi-Fi (if using ethernet skip this step)
+3. run ```sudo -i``` to login to the root account
+4. run ```git clone https://github.com/nyxSeal/nixconfig --branch <branch>``` (remove --branch flag if using main branch)
+5. run ```bash nixconfig/scripts/install.sh```
+6. follow prompts until installed
+   - make sure hostname and username match one of the hosts file. if it doesn't, then create one
+   -  make sure branch matches the branch you cloned the repository with
+8. reboot system
+9. login
+10. if needed, run ```zsh .nixconfig/scripts/setup.sh``` to setup ssh key to upload to github
+
+After this, your system should be ready!
 
 
 ## Configuration
