@@ -25,3 +25,4 @@ nix run github:nix-community/disko --extra-experimental-features "nix-command fl
 echo "Installing NixOS..."
 nixos-install --flake github:nyxSeal/nixconfig#$host
 
+git clone https://github.com/nyxSeal/nixconfig --branch untested /mnt/home/nyxSeal/.nixconfig
