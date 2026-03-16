@@ -50,6 +50,8 @@ if [[ "$hardwareConfigurationGeneration" == 'y' ]]; then
   rm /mnt/home/$user/.nixconfig/hosts/$host/configuration.nix
   cd /mnt/home/$user/.nixconfig/hosts/$host
   git add hardware-configuration.nix
+  chown $user /mnt/home/$user/.nixconfig
+  chmod -R u+w /mnt/home/$user/.nixconfig
 fi
 
 echo
