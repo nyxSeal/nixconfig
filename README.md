@@ -1,12 +1,6 @@
-# Huge work in progress
-Lots of things here don't work as intended (check issues tab for more)
-
-Even this README isn't finished
-
-
 # My NixOS config
 
-This is my personal NixOS config. I don't recommend on anyone else using this, these are just to help me remember what to do. 
+This is my personal NixOS config. I don't recommend on anyone else using this, these are just to help me remember what to do. Some information may be outdated.
 
 The issues tab is what I use to keep track of things I want to add to my config.
 
@@ -47,16 +41,19 @@ After this, your system should be ready!
 
 BRIGHTNESS CONTROL
 
-- EXTERNAL MONITORS
-
+- Notes
   - KDE
-    - KDE has a brightness service called PowerDevil, so none of these are needed.
+    - KDE has a brightness service called PowerDevil that allows you to control brightness from a widget in the system tray.
     - If it stops working, try running systemctl --user restart plasma-powershell
-
+    - One of these two tools are still needed for it to work.
+  - If using both a laptop and external monitor you will need both ddcutil and brightnessctl
+ 
+- EXTERNAL MONITORS
   - ddcutil
     - set ```brightness.ddcutil.enable``` to ```true```
     - ```ddcutil detect``` to detect monitors
     - ```ddcutil -d <display number> set 10 <brightness percentage>``` to set brightness, use + or - to change it
+
 - LAPTOP/INTERNAL MONITORS
   - brightnessctl
     - set ```brightness.brightnessctl.enable``` to ```true```
@@ -117,54 +114,36 @@ Networking:
 
 - ```services.printing.enable``` (default = false)
   - Enables CUPS
-
-
-
-
-Dependency modules:
-
   
-- ```home-manager.enable``` (default = false)
-  - Enables home manager, only used for plasma manager and dotfiles
 
-  
-- ```zsh.enable``` (default = true)
-  - Enables zsh shell language (if false then bash is defaulted, scripts may not work)
 
+
+General system: 
+- ```man.enable``` (default = true)
+  - Enables extra documentation (tealdeer and more man pages)
+
+- ```sound-driver.enable``` (default = false)
+  - Enables pipewire allowing sound to be played
 
 - ```nixpkgs.config.allowUnfree``` (default = true)
   - Enables 'unfree' software to be installed (includes steam)
 
-
-- ```gui.enable``` (default = false)
-  - Enables a display manaager that allows the launching of desktop environments.
-
-
-
-
-System: 
-
  
-- ```man.enable``` (default = true)
-  - Enables extra documentation (tealdeer and more man pages)
-
-  
-- ```sound-driver.enable``` (default = false)
-  - Enables pipewire allowing sound to be played
- 
-  
+Swap: 
 - ```swapspace.enable``` (default = false)
   - Enables swapspace, a service that dynamically creates swap when needed
  
-  
 - ```zswap.enable``` (default = false)
   - Enables zswap, which compresses ram
 
 
+System vendor specific:
 - ```amd-gpu.enable``` (default = false)
   - Enables extra options for AMD gpus
   - Requires: an AMD gpu
 
+
+Brightness:
 - ```brightness.brightnessctl.enable``` (default = false)
   - Enables the brightnessctl manager for internal display brightness management
 
@@ -219,14 +198,25 @@ Suites of tools or apps:
   - Enables games and game-related apps or features (steam, vesktop, discord, prismlauncher)
   - Requires: ```home-manager.enable```, ```nixpkgs.config.AllowUnfree```, A desktop environment or window manager
 
-Do not touch the following (enabled when needed):
-- 
 
 
-## Updating
+Do not touch the following (these are enabled by other modules when needed):
+- ```gui.enable``` (default = false)
+  - Enables a display manaager that allows the launching of desktop environments.
+  - Enabled when any of the desktop environments or window managers are enabled
 
-- Run the ```rewriteNixy``` alias in the terminal to update if using the main host (more aliases can be added in modules/essentials/zsh.nix)
-- Or, run sudo nixos-rebuild switch --flake ~/.nixconfig/flake.nix#<host>, and replace <host> with the host you want to install (ie. sudo nixos-rebuild switch --flake ~/.nixconfig/flake.nix#nixy
+- ```home-manager.enable``` (default = false)
+  - Enables home manager
+  - Planning on removing the file that uses this command
+
+
+
+
+## Updating/committing/merging branches:
+
+- Run the ```rebuild``` alias in the terminal to update, commit, or merge branches
+- Or, run ```sudo nixos-rebuild switch --flake ~/.nixconfig#<host>```, and replace ```<host>``` with the host you want to install
+    - ie. ```sudo nixos-rebuild switch --flake ~/.nixconfig/flake.nix#nixy```
 
 
 ## Other
