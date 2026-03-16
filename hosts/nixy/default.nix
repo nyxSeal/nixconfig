@@ -39,8 +39,6 @@
 
     # user declaration
     users.users."${config.mainUser}" = {
-      uid = 1000;
-      createHome = true;
       isNormalUser = true;
       extraGroups = ["wheel" "git" "networkmanager"];
 
