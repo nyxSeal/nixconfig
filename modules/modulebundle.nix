@@ -75,8 +75,5 @@
 
     #./system/sound.nix:
     sound-driver.enable = lib.mkDefault false;
-
-    #./system/zsh.nix:
-    zsh.enable = lib.mkDefault true;
   };
 }
