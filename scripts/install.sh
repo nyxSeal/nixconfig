@@ -25,7 +25,7 @@ nix run github:nix-community/disko --extra-experimental-features "nix-command fl
 
 
 
-if [[ "$hardwareConfigurationGeneration" == 'y' ]]; then
+if [[ "${hardwareConfigurationGeneration}" == 'y' ]]; then
   echo
   echo "Generating hardware-configuration.nix"
   nixos-generate-config --no-filesystems --dir /mnt/home/$user/.nixconfig/hosts/$host
