@@ -26,17 +26,22 @@ nix run github:nix-community/disko --extra-experimental-features "nix-command fl
 
 
 if [[ "$hardwareConfigurationGeneration" == 'y' ]]; then
+  echo
+  echo "Generating hardware-configuration.nix"
   nixos-generate-config --no-filesystems --dir /mnt/home/$user/.nixconfig/hosts/$host
   rm /mnt/home/$user/.nixconfig/hosts/$host/configuration.nix
 fi
 
 
-
+echo
 echo "Installing NixOS..."
 nixos-install --flake github:nyxSeal/nixconfig#$host
 
+echo
+echo "Cloning configuration repo into home directory..."
 git clone https://github.com/nyxSeal/nixconfig --branch untested /mnt/home/nyxSeal/.nixconfig
 
-
+echo
+echo "Create your password for ${username}: "
 nixos-enter --root /mnt -c 'passwd ${username}'
 
