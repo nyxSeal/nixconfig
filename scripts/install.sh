@@ -15,7 +15,7 @@ read -r username
 echo -n "Branch of this repo to use: "
 read -r branch
 
-echo -n "Generate hardware-configuration.nix into config (enter 'true' for true)? "
+echo -n "Generate hardware-configuration.nix into config (y/n)? "
 read -r hardwareConfigurationGeneration
 
 cd
@@ -25,7 +25,7 @@ nix run github:nix-community/disko --extra-experimental-features "nix-command fl
 
 
 
-if [[ "$hardwareConfigurationGeneration" == 'true' ]]; then
+if [[ "$hardwareConfigurationGeneration" == 'y' ]]; then
   nixos-generate-config --no-filesystems --dir /mnt/home/$user/.nixconfig/hosts/$host
   rm /mnt/home/$user/.nixconfig/hosts/$host/configuration.nix
 fi
