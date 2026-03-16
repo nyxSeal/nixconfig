@@ -20,13 +20,9 @@ cd
 echo "Partioning disk..."
 nix run github:nix-community/disko --extra-experimental-features "nix-command flakes" -- --mode disko ~/nixconfig/hosts/$host/disko-config.nix
 
-mkdir -p /mnt/home/$username/nixconfig
 
-git clone https://github.com/nyxSeal/nixconfig --branch $branch /mnt/home/$username
-
-mv /mnt/home/$username/nixconfig /mnt/home/$username/.nixconfig
 
 echo "Installing NixOS..."
-nixos-install --flake /mnt/home/$username/.nixconfig#$host
+nixos-install --flake github:nyxSeal/nixconfig#$host
 
 echo "NixOS installation complete!"
