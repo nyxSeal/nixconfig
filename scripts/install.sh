@@ -25,4 +25,3 @@ nix run github:nix-community/disko --extra-experimental-features "nix-command fl
 echo "Installing NixOS..."
 nixos-install --flake github:nyxSeal/nixconfig#$host
 
-echo "NixOS installation complete!"
