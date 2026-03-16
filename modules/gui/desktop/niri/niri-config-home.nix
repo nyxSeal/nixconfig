@@ -4,6 +4,6 @@
   ...
 }: {
   home.file = {
-    ".config/niri/config.kdl".source = ./../niri;
+    ".config/niri".source = ./../niri;
   };
 }

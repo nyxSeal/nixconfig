@@ -13,6 +13,8 @@
     ./gui/applications/applications.nix
     ./gui/applications/browsers.nix
     ./gui/desktop/default.nix
+    ./gui/desktop/rofi.nix
+    ./gui/desktop/waybar.nix
     ./gui/desktop/kde/kde.nix
     ./gui/desktop/niri/niri.nix
 
@@ -50,6 +52,12 @@
 
     #./gui/desktop/default.nix:
     gui.enable = lib.mkDefault false;
+
+    #./gui/desktop/rofi.nix:
+    rofi.enable = lib.mkDefault false;
+
+    #./gui/desktop/waybar.nix:
+    waybar.enable = lib.mkDefault false;
 
     #./gui/desktop/kde/kde.nix:
     kde.enable = lib.mkDefault false;

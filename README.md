@@ -158,12 +158,15 @@ Desktop environment/window manager:
   
 - ```kde.enable``` (default = false)
   - Enables the KDE Plasma desktop environment + plasma-manager for configuration
-  - Requires: ```home-manager.enable``` ```gui.enable```
- 
   
 - ```niri.enable``` (default = false)
   - Enables the niri window manager + configuration (config not implemented yet)
-  - Requires: ```gui.enable```
+
+- ```rofi.enable``` (default = false)
+  - Enables the rofi application launcher
+
+- ```waybar.enable``` (default = false)
+  - Enables waybar, a wayland bar for window managers
 
 
 

@@ -39,7 +39,7 @@
         system = "x86_64-linux";
         modules = [
           inputs.home-manager.nixosModules.home-manager
-          { environment.systemPackages = [alejandra.defaultPackage.x86_64-linux]; }
+          {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
           disko.nixosModules.disko
           ./hosts/nixy/default.nix
         ];
@@ -52,7 +52,7 @@
         system = "x86_64-linux";
         modules = [
           inputs.home-manager.nixosModules.home-manager
-          { environment.systemPackages = [alejandra.defaultPackage.x86_64-linux]; }
+          {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
           disko.nixosModules.disko
           ./hosts/scout/default.nix
         ];

@@ -9,7 +9,6 @@
   };
 
   config = lib.mkIf config.guiapps.enable {
-
     users.users."${config.mainUser}".packages = [
       pkgs.kdePackages.dolphin
       pkgs.gimp # image editor
