@@ -12,7 +12,7 @@ read -r host
 echo -n "Username: "
 read -r username
 
-echo -n "Branch of this repo to merge: "
+echo -n "Branch of this repo to use: "
 read -r branch
 
 cd
@@ -20,12 +20,13 @@ cd
 echo "Partioning disk..."
 nix run github:nix-community/disko --extra-experimental-features "nix-command flakes" -- --mode disko ~/nixconfig/hosts/$host/disko-config.nix
 
+mkdir -p /mnt/home/$username/nixconfig
 
-git clone https://github.com/nyxSeal/nixconfig --branch untested /mnt/home/nyxSeal
+git clone https://github.com/nyxSeal/nixconfig --branch $branch /mnt/home/$username
 
-mv /mnt/home/nyxSeal/nixconfig /mnt/home/nyxSeal/.nixconfig
+mv /mnt/home/$username/nixconfig /mnt/home/$username/.nixconfig
 
 echo "Installing NixOS..."
-nixos-install --flake /mnt/home/nyxSeeal/.nixconfig#$host
+nixos-install --flake /mnt/home/$username/.nixconfig#$host
 
 echo "NixOS installation complete!"
