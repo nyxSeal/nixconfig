@@ -4,33 +4,30 @@
   lib,
   ...
 }: {
-  options = {
-    zsh.enable = lib.mkEnableOption "enable zsh";
-  };
 
-  config = lib.mkIf config.zsh.enable {
-    system.userActivationScripts.zshrc = "touch .zshrc";
+  system.userActivationScripts.zshrc = "touch .zshrc";
 
-    programs.zsh = {
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+
+    autosuggestions = {
       enable = true;
-      enableCompletion = true;
+      strategy = ["history"];
+    };
 
-      autosuggestions = {
-        enable = true;
-        strategy = ["history"];
-      };
+    syntaxHighlighting.enable = true;
 
-      syntaxHighlighting.enable = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = ["git"];
+      theme = "agnoster";
+    };
 
-      ohMyZsh = {
-        enable = true;
-        plugins = ["git"];
-        theme = "agnoster";
-      };
-
-      shellAliases = {
-        rebuild = "zsh ~/.nixconfig/scripts/rebuild.sh";
-      };
+    shellAliases = {
+      rebuild = "zsh ~/.nixconfig/scripts/rebuild.sh";
+      setup = "zsh ~/.nixconfig/scripts/setup.sh";
+    };
 
       histSize = 10000;
       histFile = "~/.zsh_history";
