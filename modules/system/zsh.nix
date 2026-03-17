@@ -4,7 +4,6 @@
   lib,
   ...
 }: {
-
   users.defaultUserShell = pkgs.zsh;
 
   system.userActivationScripts.zshrc = "touch .zshrc";
@@ -31,8 +30,7 @@
       setup = "zsh ~/.nixconfig/scripts/setup.sh";
     };
 
-      histSize = 10000;
-      histFile = "~/.zsh_history";
-    };
+    histSize = 10000;
+    histFile = "~/.zsh_history";
   };
 }

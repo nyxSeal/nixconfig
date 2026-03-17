@@ -5,7 +5,11 @@
   inputs,
   ...
 }: {
-  options.home-manager.enable = lib.mkEnableOption "enable home manager";
+  options = {
+    home-manager.enable = lib.mkEnableOption "enable home manager";
+    waybar.enable = lib.mkEnableOption "enable waybar";
+    fuzzel.enable = lib.mkEnableOption "enable fuzzel";
+  };
 
   config = lib.mkIf config.home-manager.enable (
     lib.mkMerge [
@@ -22,9 +26,15 @@
       #})
 
       (lib.mkIf config.niri.enable {
-        home-manager = {
-          users."${config.mainUser}" = import ./gui/desktop/niri/niri-config-home.nix;
-        };
+        home-manager.users."${config.mainUser}" = import ./gui/desktop/niri/niri-config-home.nix;
+      })
+
+      (lib.mkIf config.waybar.enable {
+        home-manager.users."${config.mainUser}" = import ./gui/desktop/waybar-home.nix;
+      })
+
+      (lib.mkIf config.fuzzel.enable {
+        home-manager.users."${config.mainUser}" = import ./gui/desktop/fuzzel-home.nix;
       })
 
       {

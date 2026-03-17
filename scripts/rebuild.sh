@@ -1,20 +1,30 @@
 #! /bin/zsh
 
+set -o errexit
+
 git add -v -A ~/.nixconfig/*
 
 echo -n "Rebuild system? (enter 'true' if true): "
 read -r rebuildOrNot
 
 if [[ "$rebuildOrNot" == "true" ]]; then
-  sudo nixos-rebuild switch --flake ~/.nixconfig#
+
+  echo -n "Host name:"
+  read -r hostName
+  sudo nixos-rebuild switch --flake ~/.nixconfig#$hostName
+
 else
   echo "Skipping rebuild..."
 fi
+
+
 
 cd ~/.nixconfig
 
 echo "Formatting nix files..."
 alejandra ~/.nixconfig
+
+
 
 git add ~/.nixconfig
 
@@ -26,17 +36,17 @@ echo -n "Commit? (enter 'true' if true): "
 read -r commitOrNot
 
 if [[ "$commitOrNot" == "true" ]]; then
+
   echo -n "Commit message: "
   read -r commitMessage
-
   git commit -m "$commitMessage"
-
   git pull origin untested --rebase
-
   git push origin untested
+
 else
   echo "Skipping commit..."
 fi
+
 
 
 git diff untested main
