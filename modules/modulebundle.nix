@@ -23,6 +23,7 @@
     ./system/brightness.nix
     ./system/man.nix
     ./system/networking.nix
+    ./system/printing.nix
     ./system/security.nix
     ./system/sound.nix
     ./system/system-services.nix
@@ -72,6 +73,9 @@
 
     #./system/man.nix:
     man.enable = lib.mkDefault true;
+
+    #./system/printing.nix:
+    printing.enable = lib.mkDefault false;
 
     #./system/sound.nix:
     sound-driver.enable = lib.mkDefault false;
