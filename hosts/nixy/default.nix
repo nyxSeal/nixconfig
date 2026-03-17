@@ -33,9 +33,9 @@
     bootloader.enum = lib.mkForce "systemd-boot";
     amd-gpu.enable = lib.mkForce true;
     bootPartition = "nvme0n1p1";
+    printing.enable = lib.mkForce true;
 
     # other
-    services.printing.enable = lib.mkForce true;
     development.enable = lib.mkForce true;
 
     # user declaration
