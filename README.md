@@ -112,8 +112,8 @@ Networking:
   - Type: string
 
 
-- ```services.printing.enable``` (default = false)
-  - Enables CUPS
+- ```printing.enable``` (default = false)
+  - Enables CUPS and some other daemons to manage printing
   
 
 
