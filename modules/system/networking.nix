@@ -10,8 +10,6 @@
 
   time.timeZone = lib.mkDefault "America/New_York";
 
-  services.printing.enable = lib.mkDefault false;
-
   services.openssh = {
     enable = true;
     ports = [22];
