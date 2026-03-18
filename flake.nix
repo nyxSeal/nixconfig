@@ -24,6 +24,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -41,6 +46,7 @@
           inputs.home-manager.nixosModules.home-manager
           {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
           disko.nixosModules.disko
+          agenix.nixosModules.default
           ./hosts/nixy/default.nix
         ];
         specialArgs = {
@@ -54,6 +60,7 @@
           inputs.home-manager.nixosModules.home-manager
           {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
           disko.nixosModules.disko
+          agenix.nixosModules.default
           ./hosts/scout/default.nix
         ];
         specialArgs = {
