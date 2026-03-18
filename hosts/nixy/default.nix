@@ -6,6 +6,8 @@
 }: {
   imports = [
     ./../../modules/modulebundle.nix
+    ./disko-config.nix
+    ./../../globalvars.nix
     ./hardware-configuration.nix
   ];
 
@@ -17,10 +19,9 @@
 
     # gui-related
     entertainment.enable = lib.mkForce true;
-    #gui.enable = lib.mkForce true;
-    kde.enable = lib.mkForce true;
     niri.enable = lib.mkForce true;
-    #home-manager.enable = lib.mkForce true;
+    fuzzel.enable = lib.mkForce true;
+    waybar.enable = lib.mkForce true;
     guiapps.enable = lib.mkForce true;
     librewolf.enable = lib.mkForce true;
 
@@ -31,9 +32,9 @@
     bootloader.enum = lib.mkForce "systemd-boot";
     amd-gpu.enable = lib.mkForce true;
     bootPartition = "nvme0n1p1";
+    printing.enable = lib.mkForce true;
 
     # other
-    services.printing.enable = lib.mkForce true;
     development.enable = lib.mkForce true;
 
     # user declaration

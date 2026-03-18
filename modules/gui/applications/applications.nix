@@ -9,14 +9,15 @@
   };
 
   config = lib.mkIf config.guiapps.enable {
-    programs.foot.enable = true; # terminal emulator
-
     users.users."${config.mainUser}".packages = [
       pkgs.kdePackages.dolphin
       pkgs.gimp # image editor
       pkgs.libreoffice-qt-fresh # open source microslop 365 office suite alternative
       pkgs.omnissa-horizon-client # virtual desktop client
       pkgs.vorta # gui for borgbackup
+      pkgs.alacritty # terminal emulator
+      pkgs.kdePackages.ark # archive manager
+      pkgs.kdePackages.spectacle # screenshot tool
     ];
   };
 }

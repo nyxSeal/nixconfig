@@ -4,36 +4,33 @@
   lib,
   ...
 }: {
-  options = {
-    zsh.enable = lib.mkEnableOption "enable zsh";
-  };
+  users.defaultUserShell = pkgs.zsh;
 
-  config = lib.mkIf config.zsh.enable {
-    system.userActivationScripts.zshrc = "touch .zshrc";
+  system.userActivationScripts.zshrc = "touch .zshrc";
 
-    programs.zsh = {
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+
+    autosuggestions = {
       enable = true;
-      enableCompletion = true;
-
-      autosuggestions = {
-        enable = true;
-        strategy = ["history"];
-      };
-
-      syntaxHighlighting.enable = true;
-
-      ohMyZsh = {
-        enable = true;
-        plugins = ["git"];
-        theme = "agnoster";
-      };
-
-      shellAliases = {
-        rewriteNixy = "git add -v -A ~/.nixconfig/* ; sudo nixos-rebuild switch --flake ~/.nixconfig#nixy && zsh ~/.nixconfig/scripts/rebuild.sh";
-      };
-
-      histSize = 10000;
-      histFile = "~/.zsh_history";
+      strategy = ["history"];
     };
+
+    syntaxHighlighting.enable = true;
+
+    ohMyZsh = {
+      enable = true;
+      plugins = ["git"];
+      theme = "agnoster";
+    };
+
+    shellAliases = {
+      rebuild = "zsh ~/.nixconfig/scripts/rebuild.sh";
+      setup = "zsh ~/.nixconfig/scripts/setup.sh";
+    };
+
+    histSize = 10000;
+    histFile = "~/.zsh_history";
   };
 }

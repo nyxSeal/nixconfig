@@ -14,12 +14,15 @@
     pkgs.borgbackup # backup system
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  system.autoUpgrade = {
-    enable = true;
-    dates = "weekly";
+  fonts = { 
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+    ];
+    enableDefaultPackages = true;
   };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix.gc = {
     automatic = true;

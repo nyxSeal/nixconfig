@@ -20,8 +20,9 @@
     };
 
     users.users."${config.mainUser}".packages = [
-      pkgs.prismlauncher
-      pkgs.vesktop
+      pkgs.prismlauncher # minecraft launcher
+      pkgs.vesktop # discord client
+      pkgs.discover-overlay # may allow discord voice to be overlayed in-game
     ];
   };
 }

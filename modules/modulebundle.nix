@@ -23,6 +23,7 @@
     ./system/brightness.nix
     ./system/man.nix
     ./system/networking.nix
+    ./system/printing.nix
     ./system/security.nix
     ./system/sound.nix
     ./system/system-services.nix
@@ -34,6 +35,8 @@
 
     # ./home-manager.setup.nix:
     home-manager.enable = lib.mkDefault false;
+    fuzzel.enable = lib.mkDefault false;
+    waybar.enable = lib.mkDefault false;
 
     #./development.nix:
 
@@ -73,10 +76,10 @@
     #./system/man.nix:
     man.enable = lib.mkDefault true;
 
+    #./system/printing.nix:
+    printing.enable = lib.mkDefault false;
+
     #./system/sound.nix:
     sound-driver.enable = lib.mkDefault false;
-
-    #./system/zsh.nix:
-    zsh.enable = lib.mkDefault true;
   };
 }

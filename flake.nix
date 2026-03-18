@@ -20,10 +20,9 @@
       inputs.home-manager.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "nixpkgs";
     };
   };
 
@@ -32,6 +31,7 @@
     nixpkgs,
     home-manager,
     alejandra,
+    disko,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -39,11 +39,9 @@
         system = "x86_64-linux";
         modules = [
           inputs.home-manager.nixosModules.home-manager
-          {
-            environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
-          }
-          ./hosts/main/default.nix
-          ./globalvars.nix
+          {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
+          disko.nixosModules.disko
+          ./hosts/nixy/default.nix
         ];
         specialArgs = {
           inherit inputs;
@@ -54,11 +52,9 @@
         system = "x86_64-linux";
         modules = [
           inputs.home-manager.nixosModules.home-manager
-          {
-            environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
-          }
-          ./hosts/backup/default.nix
-          ./globalvars.nix
+          {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
+          disko.nixosModules.disko
+          ./hosts/scout/default.nix
         ];
         specialArgs = {
           inherit inputs;

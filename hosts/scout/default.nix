@@ -7,6 +7,8 @@
   imports = [
     ./../../modules/modulebundle.nix
     ./hardware-configuration.nix
+    ./disko-config.nix
+    ./../../globalvars.nix
   ];
 
   config = {

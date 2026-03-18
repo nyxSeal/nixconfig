@@ -10,8 +10,6 @@
 
   time.timeZone = lib.mkDefault "America/New_York";
 
-  services.printing.enable = lib.mkDefault false;
-
   services.openssh = {
     enable = true;
     ports = [22];
@@ -23,8 +21,10 @@
     };
   };
 
+  services.gnome.gcr-ssh-agent.enable = false;
+
   programs.ssh = {
-    #startAgent = true;
+    startAgent = true;
     enableAskPassword = true;
 
     extraConfig = "

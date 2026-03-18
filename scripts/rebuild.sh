@@ -1,49 +1,54 @@
 #! /bin/zsh
 
+set -o errexit
+
 cd ~/.nixconfig
 
+echo
+echo "Formatting nix files..."
 alejandra ~/.nixconfig
 
-git add ~/.nixconfig
 
-git diff -U0
 
-git status
 
-echo -n "Commit? (enter 'true' if true): "
-read -r commitOrNot
 
-if [[ "$commitOrNot" == "true" ]]; then
-  echo -n "Commit message: "
-  read -r commitMessage
+git add -v -i ~/.nixconfig/*
 
-  git commit -m "$commitMessage"
+echo -n "Rebuild system? (enter 'true' if true): "
+read -r rebuildOrNot
 
-  git pull origin untested --rebase
+if [[ "$rebuildOrNot" == "true" ]]; then
 
-  git push origin untested
+  echo -n "Host name:"
+  read -r hostName
+  echo
+  sudo nixos-rebuild switch --flake ~/.nixconfig#$hostName
+
 else
-  echo "Skipping commit..."
+  echo
+  echo "Skipping rebuild..."
 fi
 
 
 
 
-echo -n "Merge with main branch? (enter 'true' if true): "
-read -r mergeOrNot
 
-if [[ "$mergeOrNot" == "true" ]]; then
 
-  echo -n "Merge message: "
-  read -r mergeMessage
+git status
 
-  git checkout main
+git diff
 
-  git merge --squash untested
+echo -n "Commit? (enter 'true' if true): "
+read -r commitOrNot
 
-  git commit -m "$mergeMessage"
+if [[ "$commitOrNot" == "true" ]]; then
 
-  git checkout untested
+  echo -n "Commit message: "
+  read -r commitMessage
+  git commit -m "$commitMessage"
+  git pull origin main --rebase
+  git push origin main
+
 else
-  echo "Skipping merge..."
+  echo "Skipping commit..."
 fi
