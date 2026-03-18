@@ -165,8 +165,8 @@ Desktop environment/window manager:
 - ```rofi.enable``` (default = false)
   - Enables the rofi application launcher
 
-- ```waybar.enable``` (default = false)
-  - Enables waybar, a wayland bar for window managers
+- ```noctalia.enable``` (default = false)
+  - Enables noctalia-shell, a minimal desktop environment for window managers. Adds useful features for window managers, including system tray/bar
 
 
 
