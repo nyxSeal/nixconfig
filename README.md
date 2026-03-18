@@ -215,7 +215,7 @@ Do not touch the following (these are enabled by other modules when needed):
 
 
 
-## Updating/committing/merging branches:
+## Updating/committing branches:
 
 - Run the ```rebuild``` alias in the terminal to update, commit, or merge branches
   - When running this alias, you are given an interactive git prompt. Select 5 (patch), then select the files with the number it is assigned to in the status. After, type 'y' to stage the current segment of code, 'a' to stage all future segments, and 'e' to edit the current segment (type '?' to get help)
