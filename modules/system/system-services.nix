@@ -22,6 +22,13 @@
     ];
     enableDefaultPackages = true;
   };
+
+  hardware.bluetooth.enable = true;
+
+  services.power-profiles-daemon.enable = true;
+
+  services.upower.enable = true;
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix.gc = {
