@@ -8,6 +8,7 @@
   options = {
     home-manager.enable = lib.mkEnableOption "enable home manager";
     fuzzel.enable = lib.mkEnableOption "enable fuzzel";
+    noctalia.enable = lib.mkEnableOption "enable noctalia-shell";
   };
 
   config = lib.mkIf config.home-manager.enable (
@@ -30,6 +31,13 @@
 
       (lib.mkIf config.fuzzel.enable {
         home-manager.users."${config.mainUser}" = import ./gui/desktop/fuzzel-home.nix;
+      })
+
+      (lib.mkIf config.noctalia.enable {
+        home-manager = {
+          sharedModules = [inputs.noctalia.homeModules.default];
+          users."${config.mainUser}" = import ./gui/desktop/noctalia-home.nix;
+        };
       })
 
       {
