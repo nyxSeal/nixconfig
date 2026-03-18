@@ -12,9 +12,6 @@ read -r host
 echo -n "Username: "
 read -r username
 
-echo -n "Branch of this repo to use: "
-read -r branch
-
 echo -n "Generate hardware-configuration.nix into config (y/n)? "
 read -r hardwareConfigurationGeneration
 
@@ -43,16 +40,18 @@ nixos-install --flake ~/nixconfig#$host
 
 echo
 echo "Cloning configuration repo into home directory..."
-git clone https://github.com/nyxSeal/nixconfig --branch untested /mnt/home/nyxSeal/.nixconfig
+git clone https://github.com/nyxSeal/nixconfig /mnt/home/nyxSeal/.nixconfig
 
 if [[ "$hardwareConfigurationGeneration" == 'y' ]]; then
   nixos-generate-config --no-filesystems --dir /mnt/home/$user/.nixconfig/hosts/$host
   rm /mnt/home/$user/.nixconfig/hosts/$host/configuration.nix
   cd /mnt/home/$user/.nixconfig/hosts/$host
   git add hardware-configuration.nix
-  chown -R $user /mnt/home/$user/.nixconfig
-  chmod -R u+w /mnt/home/$user/.nixconfig
 fi
+
+
+chown -R $user /mnt/home/$user/.nixconfig
+chmod -R u+w /mnt/home/$user/.nixconfig
 
 echo
 echo "Create your password for ${username}: "
