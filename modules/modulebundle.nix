@@ -13,7 +13,6 @@
     ./gui/applications/applications.nix
     ./gui/applications/browsers.nix
     ./gui/desktop/default.nix
-    ./gui/desktop/noctalia.nix
     ./gui/desktop/kde/kde.nix
     ./gui/desktop/niri/niri.nix
 
@@ -37,6 +36,7 @@
     # ./home-manager.setup.nix:
     home-manager.enable = lib.mkDefault false;
     fuzzel.enable = lib.mkDefault false;
+    noctalia.enable = lib.mkDefault false;
 
     #./development.nix:
 
@@ -52,9 +52,6 @@
 
     #./gui/desktop/default.nix:
     gui.enable = lib.mkDefault false;
-
-    #./gui/desktop/noctalia.nix:
-    noctalia.enable = lib.mkDefault false;
 
     #./gui/desktop/kde/kde.nix:
     kde.enable = lib.mkDefault false;
