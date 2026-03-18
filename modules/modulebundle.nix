@@ -9,6 +9,7 @@
     ./development.nix
 
     ./entertainment/entertainment.nix
+    ./entertainment/minecraft-server.nix
 
     ./gui/applications/applications.nix
     ./gui/applications/browsers.nix
@@ -42,6 +43,9 @@
 
     #./entertainment/entertainment.nix:
     entertainment.enable = lib.mkDefault false;
+
+    #./entertainment/minecraft-server.nix;
+    minecraft-server.enable = lib.mkDefault false;
 
     #./gui/applications/applications.nix:
     guiapps.enable = lib.mkDefault false;
