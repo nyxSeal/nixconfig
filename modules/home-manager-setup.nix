@@ -7,7 +7,6 @@
 }: {
   options = {
     home-manager.enable = lib.mkEnableOption "enable home manager";
-    waybar.enable = lib.mkEnableOption "enable waybar";
     fuzzel.enable = lib.mkEnableOption "enable fuzzel";
   };
 
