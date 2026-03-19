@@ -34,10 +34,6 @@ fi
 
 
 
-git status
-
-git diff
-
 echo -n "Commit? (enter 'true' if true): "
 read -r commitOrNot
 
