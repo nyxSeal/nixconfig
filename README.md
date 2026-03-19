@@ -195,11 +195,15 @@ Suites of tools or apps:
 - ```guiapps.enable``` (default = false)
   - Enables a suite of gui applications
   - Requires: A desktop environment or window manager
- 
+
+ Entertainment:
   
 - ```entertainment.enable``` (default = false)
   - Enables games and game-related apps or features (steam, vesktop, discord, prismlauncher)
-  - Requires: ```home-manager.enable```, ```nixpkgs.config.AllowUnfree```, A desktop environment or window manager
+  - Requires: a desktop environment or window manager
+ 
+- ```minecraft-server.enable``` (default = false)
+  - Enables minecraft server hosting (can be edited in ./modules/entertainment/minecraft-server.nix)
 
 
 
