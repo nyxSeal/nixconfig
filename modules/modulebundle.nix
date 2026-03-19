@@ -35,7 +35,6 @@
 
     # ./home-manager.setup.nix:
     home-manager.enable = lib.mkDefault false;
-    fuzzel.enable = lib.mkDefault false;
     noctalia.enable = lib.mkDefault false;
 
     #./development.nix:
