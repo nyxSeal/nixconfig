@@ -35,7 +35,7 @@
 
       (lib.mkIf config.noctalia.enable {
         home-manager = {
-          sharedModules = [inputs.noctalia.homeModules.default];
+          imports = [inputs.noctalia.homeModules.default];
           users."${config.mainUser}" = import ./gui/desktop/noctalia-home.nix;
         };
       })
