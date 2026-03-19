@@ -23,9 +23,6 @@
 
   services.gnome.gcr-ssh-agent.enable = false;
 
-  environment.systemPackages = [
-    pkgs.kdePackages.ksshaskpass
-  ];
 
   programs.ssh = {
     startAgent = true;
