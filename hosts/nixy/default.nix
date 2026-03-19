@@ -20,7 +20,6 @@
     # gui-related
     entertainment.enable = lib.mkForce true;
     niri.enable = lib.mkForce true;
-    fuzzel.enable = lib.mkForce true;
     noctalia.enable = lib.mkForce true;
     guiapps.enable = lib.mkForce true;
     librewolf.enable = lib.mkForce true;
