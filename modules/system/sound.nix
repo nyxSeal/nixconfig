@@ -12,11 +12,11 @@
       alsa.enable = true;
       jack.enable = true;
       pulse.enable = true;
-      wireplumber.enable = true;  
+      wireplumber.enable = true;
     };
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
- 
+
     environment.systemPackages = with pkgs; [
       pavucontrol
     ];

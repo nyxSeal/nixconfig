@@ -22,6 +22,7 @@
   };
 
   services.gnome.gcr-ssh-agent.enable = false;
+  services.gnome.gnome-keyring.enable = true;
 
   programs.ssh = {
     startAgent = true;
