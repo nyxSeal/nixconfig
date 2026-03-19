@@ -23,12 +23,9 @@
 
   services.gnome.gcr-ssh-agent.enable = false;
 
-  services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true;
-
-  #environment.systemPackages = [
-  #  pkgs.kdePackages.ksshaskpass
-  #];
+  environment.systemPackages = [
+    pkgs.kdePackages.ksshaskpass
+  ];
 
   programs.ssh = {
     startAgent = true;
