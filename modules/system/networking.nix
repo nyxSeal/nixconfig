@@ -21,15 +21,18 @@
     };
   };
 
-  services.gnome.gcr-ssh-agent.enable = false;
-
-  environment.systemPackages = [
-    pkgs.kdePackages.ksshaskpass
-  ];
+  services.gnome.gcr-ssh-agent.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+      security.pam = {
+        services.login.enableGnomeKeyring = true;
+        # Can use ssh instead of password on system
+        sshAgentAuth.enable = true;
+        services.sudo.sshAgentAuth = true;
+      };
 
   programs.ssh = {
-    startAgent = true;
-    enableAskPassword = true;
+    #startAgent = true;
+    #enableAskPassword = true;
 
     extraConfig = "
       Host backup
