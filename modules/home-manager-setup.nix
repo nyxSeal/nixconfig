@@ -7,7 +7,6 @@
 }: {
   options = {
     home-manager.enable = lib.mkEnableOption "enable home manager";
-    fuzzel.enable = lib.mkEnableOption "enable fuzzel";
     noctalia.enable = lib.mkEnableOption "enable noctalia-shell";
   };
 
