@@ -29,10 +29,6 @@
         home-manager.users."${config.mainUser}" = import ./gui/desktop/niri/niri-config-home.nix;
       })
 
-      (lib.mkIf config.fuzzel.enable {
-        home-manager.users."${config.mainUser}" = import ./gui/desktop/fuzzel-home.nix;
-      })
-
       (lib.mkIf config.noctalia.enable {
         home-manager.users."${config.mainUser}" = import ./gui/desktop/noctalia-home.nix;
       })
