@@ -162,11 +162,8 @@ Desktop environment/window manager:
 - ```niri.enable``` (default = false)
   - Enables the niri window manager + configuration (config not implemented yet)
 
-- ```rofi.enable``` (default = false)
-  - Enables the rofi application launcher
-
 - ```noctalia.enable``` (default = false)
-  - Enables noctalia-shell, a minimal desktop environment for window managers. Adds useful features for window managers, including system tray/bar
+  - Enables noctalia-shell, a minimal desktop environment for window managers. Adds useful features for window managers, including system tray/bar and application launcher
 
 
 
