@@ -83,6 +83,9 @@ BRIGHTNESS CONTROL
   - Type: string
   - Options: "grub", "systemd-boot"
 
+- ```diskName``` (default = null)
+  - The main disk (where the boot/EFI partition is present), excluding ```/dev``` and any partitions (mainly used for GRUB MBR layouts)
+  - Type: string
 
   
 
@@ -130,11 +133,11 @@ General system:
 
  
 Swap: 
-- ```swapspace.enable``` (default = false)
-  - Enables swapspace, a service that dynamically creates swap when needed
+- ```zram.enable``` (default = false)
+  - Enables zram, which compresses RAM
  
 - ```zswap.enable``` (default = false)
-  - Enables zswap, which compresses ram
+  - Enables zswap, which I'm not too confident on what it does but only enable if using swap partitions and don't use it alongside zram unless you know what you're doing
 
 
 System vendor specific:
@@ -162,11 +165,8 @@ Desktop environment/window manager:
 - ```niri.enable``` (default = false)
   - Enables the niri window manager + configuration (config not implemented yet)
 
-- ```rofi.enable``` (default = false)
-  - Enables the rofi application launcher
-
-- ```waybar.enable``` (default = false)
-  - Enables waybar, a wayland bar for window managers
+- ```noctalia.enable``` (default = false)
+  - Enables noctalia-shell, a minimal desktop environment for window managers. Adds useful features for window managers, including system tray/bar and application launcher
 
 
 

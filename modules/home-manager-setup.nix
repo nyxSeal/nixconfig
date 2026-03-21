@@ -7,8 +7,7 @@
 }: {
   options = {
     home-manager.enable = lib.mkEnableOption "enable home manager";
-    waybar.enable = lib.mkEnableOption "enable waybar";
-    fuzzel.enable = lib.mkEnableOption "enable fuzzel";
+    noctalia.enable = lib.mkEnableOption "enable noctalia-shell";
   };
 
   config = lib.mkIf config.home-manager.enable (
@@ -29,12 +28,11 @@
         home-manager.users."${config.mainUser}" = import ./gui/desktop/niri/niri-config-home.nix;
       })
 
-      (lib.mkIf config.waybar.enable {
-        home-manager.users."${config.mainUser}" = import ./gui/desktop/waybar-home.nix;
-      })
-
-      (lib.mkIf config.fuzzel.enable {
-        home-manager.users."${config.mainUser}" = import ./gui/desktop/fuzzel-home.nix;
+      (lib.mkIf config.noctalia.enable {
+        home-manager.users."${config.mainUser}".imports = [
+          ./gui/desktop/noctalia-home.nix
+          inputs.noctalia.homeModules.default
+        ];
       })
 
       {
@@ -42,12 +40,10 @@
           useGlobalPkgs = true;
           useUserPackages = true;
 
-          users."${config.mainUser}" = {
-            home = {
-              username = "${config.mainUser}";
-              homeDirectory = "/home/${config.mainUser}";
-              stateVersion = "25.11";
-            };
+          users."${config.mainUser}".home = {
+            username = "${config.mainUser}";
+            homeDirectory = "/home/${config.mainUser}";
+            stateVersion = "25.11";
           };
         };
       }

@@ -32,9 +32,9 @@
       description = "the user allowed to SSH into the host";
     };
 
-    bootPartition = lib.mkOption {
+    diskName = lib.mkOption {
       type = lib.types.str;
-      description = "the device for the boot partition (after /dev)";
+      description = "the name of the disk partition (excluding /dev)";
     };
   };
 }
