@@ -29,7 +29,10 @@
       })
 
       (lib.mkIf config.noctalia.enable {
-        home-manager.users."${config.mainUser}" = import ./gui/desktop/noctalia-home.nix;
+        home-manager.users."${config.mainUser}".imports = [
+          ./gui/desktop/noctalia-home.nix
+          inputs.noctalia.homeModules.default
+        ];
       })
 
       {
@@ -37,12 +40,10 @@
           useGlobalPkgs = true;
           useUserPackages = true;
 
-          users."${config.mainUser}" = {
-            home = {
-              username = "${config.mainUser}";
-              homeDirectory = "/home/${config.mainUser}";
-              stateVersion = "25.11";
-            };
+          users."${config.mainUser}".home = {
+            username = "${config.mainUser}";
+            homeDirectory = "/home/${config.mainUser}";
+            stateVersion = "25.11";
           };
         };
       }
