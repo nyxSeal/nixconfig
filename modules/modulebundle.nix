@@ -62,8 +62,8 @@
     bootloader.enum = lib.mkDefault "null";
 
     #./partions/swap.nix:
-    swapspace.enable = lib.mkDefault false;
     zswap.enable = lib.mkDefault false;
+    zram.enable = lib.mkDefault false;
 
     #./system/amd-gpu.nix:
     amd-gpu.enable = lib.mkDefault false;
