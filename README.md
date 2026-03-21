@@ -83,6 +83,9 @@ BRIGHTNESS CONTROL
   - Type: string
   - Options: "grub", "systemd-boot"
 
+- ```diskName``` (default = null)
+  - The main disk (where the boot/EFI partition is present), excluding ```/dev``` and any partitions (mainly used for GRUB MBR layouts)
+  - Type: string
 
   
 

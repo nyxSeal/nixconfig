@@ -30,7 +30,7 @@
     zram.enable = lib.mkForce true;
     bootloader.enum = lib.mkForce "systemd-boot";
     amd-gpu.enable = lib.mkForce true;
-    bootPartition = "nvme0n1p1";
+    diskName = "nvme0n1";
     printing.enable = lib.mkForce true;
 
     # other

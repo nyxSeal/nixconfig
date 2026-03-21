@@ -21,7 +21,7 @@
       lib.mkIf (config.bootloader.enum == "grub") {
         boot.loader.grub = {
           enable = true;
-          device = "/dev/${config.bootPartition}";
+          device = "/dev/${config.diskName}";
         };
       }
     )
