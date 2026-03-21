@@ -130,11 +130,11 @@ General system:
 
  
 Swap: 
-- ```swapspace.enable``` (default = false)
-  - Enables swapspace, a service that dynamically creates swap when needed
+- ```zram.enable``` (default = false)
+  - Enables zram, which compresses RAM
  
 - ```zswap.enable``` (default = false)
-  - Enables zswap, which compresses ram
+  - Enables zswap, which I'm not too confident on what it does but only enable if using swap partitions and don't use it alongside zram unless you know what you're doing
 
 
 System vendor specific:
