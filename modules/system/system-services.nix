@@ -6,13 +6,18 @@
 }: {
   nixpkgs.config.allowUnfree = lib.mkDefault true;
 
-  users.users."${config.mainUser}".packages = [
-    pkgs.wget # downloading tool often a default in linux
-    pkgs.vim # very useful text editor
-    pkgs.btop # tui system monitor
-    pkgs.fastfetch # up-to-date neofetch
-    pkgs.borgbackup # backup system
-  ];
+  users.users."${config.mainUser}" = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "git" "networkmanager"];
+    packages = [
+      pkgs.wget # downloading tool often a default in linux
+      pkgs.vim # very useful text editor
+      pkgs.btop # tui system monitor
+      pkgs.fastfetch # up-to-date neofetch
+      pkgs.borgbackup # backup system
+      pkgs.tree # file system hierarchy viewer
+    ];
+  };
 
   fonts = {
     packages = with pkgs; [
