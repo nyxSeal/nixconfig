@@ -226,4 +226,4 @@ Do not touch the following (these are enabled by other modules when needed):
 
 To create the ASCII titles in my configs (not using them anymore): https://patorjk.com/software/taag/#p=display&f=Big+Money-ne
 
-
+To debug home-manager.service not enabling on occasion, run ```systemctl status -n100 home-manager-<mainUser>.service```
