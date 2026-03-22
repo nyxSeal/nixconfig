@@ -1,7 +1,7 @@
-{config, ...}: let
-  link = config.lib.file.mkOutOfStoreSymlink;
-in {
-  xdg.configFile = {
-    ".config/niri/config.kdl".source = link "./../niri";
+{
+  home.file = {
+    ".config/niri/config.kdl" = {
+      source = ./../niri/config.kdl;
+    };
   };
 }

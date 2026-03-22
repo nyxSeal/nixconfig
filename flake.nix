@@ -34,6 +34,7 @@
     noctalia-qs = {
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.treefmt-nix.follows = "nixpkgs";
     };
   };
 

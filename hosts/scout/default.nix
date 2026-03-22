@@ -19,7 +19,8 @@
 
     # system
     bootloader.enum = lib.mkForce "grub";
-    bootPartition = lib.mkForce "sda1";
+    diskName = lib.mkForce "sda";
+    zram.enable = lib.mkForce true;
 
     # user declaration
     users.users."${config.mainUser}" = {
