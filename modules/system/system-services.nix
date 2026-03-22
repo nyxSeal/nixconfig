@@ -14,7 +14,7 @@
     pkgs.borgbackup # backup system
   ];
 
-  fonts = { 
+  fonts = {
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
@@ -22,6 +22,17 @@
     ];
     enableDefaultPackages = true;
   };
+
+  hardware.firmware = [pkgs.linux-firmware];
+
+  hardware.enableAllFirmware = true;
+
+  hardware.bluetooth.enable = true;
+
+  services.power-profiles-daemon.enable = true;
+
+  services.upower.enable = true;
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix.gc = {
