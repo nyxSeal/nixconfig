@@ -207,10 +207,10 @@ Do not touch the following (these are enabled by other modules when needed):
 - ```gui.enable``` (default = false)
   - Enables a display manaager that allows the launching of desktop environments.
   - Enabled when any of the desktop environments or window managers are enabled
-
 - ```home-manager.enable``` (default = false)
   - Enables home manager
   - Planning on removing the file that uses this command
+
 
 
 
@@ -222,8 +222,14 @@ Do not touch the following (these are enabled by other modules when needed):
 - Or, run ```sudo nixos-rebuild switch --flake ~/.nixconfig#<host>```, and replace ```<host>``` with the host you want to install
     - ie. ```sudo nixos-rebuild switch --flake ~/.nixconfig/flake.nix#nixy```
 
+## Troubleshooting
+- Home manager service failed to start
+  - Run ```systemctl status -n100 home-manager-<mainUser>.service``` to see the actual error
+- Alejandra found an error
+  - Since Alejandra cites errors in characters and not lines, eval the file manually with nix using the command:
+  - ```nix eval --file <path/to/file.nix>```
+- Run the keybind ```Ctrl+Alt+F2``` to login via TTY instead of a login manager (ly)
+- Press ```e``` on a boot entry to edit it (for example, replace the init from a nix store path to ```/bin/sh```)
+
 ## Other
-
 To create the ASCII titles in my configs (not using them anymore): https://patorjk.com/software/taag/#p=display&f=Big+Money-ne
-
-To debug home-manager.service not enabling on occasion, run ```systemctl status -n100 home-manager-<mainUser>.service```
