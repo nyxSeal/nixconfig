@@ -25,7 +25,7 @@
     ./system/networking.nix
     ./system/printing.nix
     ./system/security.nix
-    ./system/sound.nix
+    ./system/audio.nix
     ./system/system-services.nix
     ./system/zsh.nix
   ];
@@ -79,7 +79,7 @@
     #./system/printing.nix:
     printing.enable = lib.mkDefault false;
 
-    #./system/sound.nix:
+    #./system/audio.nix:
     audio.enable = lib.mkDefault false;
   };
 }
