@@ -29,27 +29,31 @@
   };
 
   hardware.firmware = [pkgs.linux-firmware];
-
-  hardware.enableAllFirmware = true;
+  hardware.enableAllFirmware = true; # includes unfree blobs
 
   hardware.bluetooth.enable = true;
 
+  # power management
   services.power-profiles-daemon.enable = true;
-
   services.upower.enable = true;
 
+  # use latest kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # clear old generations
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than-14d";
   };
 
+
   nix.settings = {
-    auto-optimise-store = true;
-    experimental-features = ["nix-command" "flakes"];
+    auto-optimise-store = true; # remove unlinked/unused files
+    experimental-features = ["nix-command" "flakes"]; # enables flakes (and nix-command but flakes requires nix-command)
   };
+
+
 
   system.stateVersion = "25.11"; # DO NOT CHANGE THIS VALUE UNLESS YOU ABSOLUTELY KNOW WHAT YOU ARE DOING
 }
