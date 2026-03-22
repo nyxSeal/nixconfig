@@ -38,6 +38,7 @@
     noctalia.enable = lib.mkDefault false;
 
     #./development.nix:
+    development.enable = lib.mkDefault false;
 
     #./entertainment/entertainment.nix:
     entertainment.enable = lib.mkDefault false;
@@ -79,6 +80,6 @@
     printing.enable = lib.mkDefault false;
 
     #./system/sound.nix:
-    sound-driver.enable = lib.mkDefault false;
+    audio.enable = lib.mkDefault false;
   };
 }
