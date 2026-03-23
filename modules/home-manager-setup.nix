@@ -30,7 +30,7 @@
 
       (lib.mkIf config.noctalia.enable {
         home-manager.users."${config.mainUser}".imports = [
-          ./gui/desktop/noctalia-home.nix
+          ./gui/desktop/noctalia/noctalia-home.nix
           inputs.noctalia.homeModules.default
         ];
       })
