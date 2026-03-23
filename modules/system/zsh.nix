@@ -28,6 +28,7 @@
     shellAliases = {
       rebuild = "zsh ~/.nixconfig/scripts/rebuild.sh";
       setup = "zsh ~/.nixconfig/scripts/setup.sh";
+      saveNoctaliaConfig = "noctalia-shell ipc call state all > ~/.nixconfig/modules/gui/desktop/noctalia/noctalia-config.json";
     };
 
     histSize = 10000;
