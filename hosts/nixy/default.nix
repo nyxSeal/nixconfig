@@ -22,6 +22,7 @@
     noctalia.enable = lib.mkForce true;
     guiapps.enable = lib.mkForce true;
     librewolf.enable = lib.mkForce true;
+    tor.enable = lib.mkForce true;
 
     # system
     audio.enable = lib.mkForce true;

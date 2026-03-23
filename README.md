@@ -182,6 +182,9 @@ Browser:
   - Enables the Floorp browser
   - Requires: A desktop environment or window manager
 
+- ```tor.enable``` (default = false)
+  - Enables the Tor browser
+  - Requires: A desktop environment or window manager
 
 
 
