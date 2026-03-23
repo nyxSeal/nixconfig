@@ -48,6 +48,7 @@
     #./gui/applications/browsers.nix:
     librewolf.enable = lib.mkDefault false;
     floorp.enable = lib.mkDefault false;
+    tor.enable = lib.mkDefault false;
 
     #./gui/desktop/default.nix:
     gui.enable = lib.mkDefault false;
