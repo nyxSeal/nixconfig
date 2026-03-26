@@ -19,6 +19,7 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
+      jetbrains-mono
     ];
     enableDefaultPackages = true;
   };

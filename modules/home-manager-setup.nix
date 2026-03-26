@@ -19,10 +19,9 @@
         };
       })
 
-      #(lib.mkIf config.entertainment.enable {
-      #  home-manager = {
-      #  };
-      #})
+      (lib.mkIf config.entertainment.enable {
+        home-manager.users."${config.mainUser}" = import ./gui/applications/alacritty.nix;
+      })
 
       (lib.mkIf config.niri.enable {
         home-manager.users."${config.mainUser}" = import ./gui/desktop/niri/niri-config-home.nix;
