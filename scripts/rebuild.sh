@@ -14,15 +14,14 @@ alejandra ~/.nixconfig
 
 git add -i ~/.nixconfig/*
 
-echo -n "Rebuild system? (enter 'true' if true): "
+echo -n "Rebuild system? (y/n): "
 read -r rebuildOrNot
 
-if [ "$rebuildOrNot" = "true" ]; then
+if [ "$rebuildOrNot" = "y" ]; then
 
-  echo -n "Host name:"
-  read -r hostName
+  hostName="$(hostname)"
   echo
-  sudo nixos-rebuild switch --flake ~/.nixconfig#$hostName
+  sudo nixos-rebuild switch --show-trace --flake ~/.nixconfig#$hostName
 
 else
   echo
@@ -33,19 +32,23 @@ fi
 
 
 
-
-echo -n "Commit? (enter 'true' if true): "
+echo
+echo -n "Commit? (y/n): "
 read -r commitOrNot
 
-if [ "$commitOrNot" = "true" ]; then
+if [ "$commitOrNot" = "y" ]; then
 
   currentBranch="$(git branch --show-current)"
+  echo
   echo -n "Commit message: "
   read -r commitMessage
+
+  echo
   git commit -m "$commitMessage"
   git pull origin $currentBranch --rebase
   git push origin $currentBranch
 
 else
+  echo
   echo "Skipping commit..."
 fi
