@@ -8,7 +8,6 @@
     ./../../modules/modulebundle.nix
     ./hardware-configuration.nix
     ./disko-config.nix
-    ./../../globalvars.nix
   ];
 
   config = {
@@ -22,14 +21,5 @@
     diskName = lib.mkForce "sda";
     zram.enable = lib.mkForce true;
 
-    # user declaration
-    users.users."${config.mainUser}" = {
-      isNormalUser = true;
-      extraGroups = ["wheel" "git" "networkmanager"];
-
-      packages = [
-        pkgs.tree
-      ];
-    };
   };
 }

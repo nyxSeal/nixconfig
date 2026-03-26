@@ -7,7 +7,6 @@
   imports = [
     ./../../modules/modulebundle.nix
     ./disko-config.nix
-    ./../../globalvars.nix
     ./hardware-configuration.nix
   ];
 
@@ -26,7 +25,7 @@
     tor.enable = lib.mkForce true;
 
     # system
-    sound-driver.enable = lib.mkForce true;
+    audio.enable = lib.mkForce true;
     zram.enable = lib.mkForce true;
     bootloader.enum = lib.mkForce "systemd-boot";
     amd-gpu.enable = lib.mkForce true;

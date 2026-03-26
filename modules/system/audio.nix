@@ -4,9 +4,9 @@
   lib,
   ...
 }: {
-  options.sound-driver.enable = lib.mkEnableOption "enables pipewire/sound";
+  options.audio.enable = lib.mkEnableOption "enables pipewire/sound";
 
-  config = lib.mkIf config.sound-driver.enable {
+  config = lib.mkIf config.audio.enable {
     services.pipewire = {
       enable = true;
       alsa.enable = true;
