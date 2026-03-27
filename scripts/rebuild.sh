@@ -19,7 +19,7 @@ echo
 echo -n "Update flake.lock? (y/n): "
 read -r updateLockOrNot
 
-if [ "$updateLockOrNot" = "y" ]; then
+if [[ "$updateLockOrNot" = "y" ]]; then
   nix flake update
 else
   echo
@@ -38,7 +38,7 @@ echo
 echo -n "Rebuild system? (y/n): "
 read -r rebuildOrNot
 
-if [ "$rebuildOrNot" = "y" ]; then
+if [[ "$rebuildOrNot" = "y" ]]; then
 
   hostName="$(hostname)"
   echo
@@ -58,7 +58,7 @@ echo
 echo -n "Commit? (y/n): "
 read -r commitOrNot
 
-if [ "$commitOrNot" = "y" ]; then
+if [[ "$commitOrNot" = "y" ]]; then
 
   currentBranch="$(git branch --show-current)"
   echo
