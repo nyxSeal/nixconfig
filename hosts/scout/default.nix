@@ -20,6 +20,5 @@
     bootloader.enum = lib.mkForce "grub";
     diskName = lib.mkForce "sda";
     zram.enable = lib.mkForce true;
-
   };
 }

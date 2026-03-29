@@ -48,13 +48,10 @@
     options = "--delete-older-than-14d";
   };
 
-
   nix.settings = {
     auto-optimise-store = true; # remove unlinked/unused files
     experimental-features = ["nix-command" "flakes"]; # enables flakes (and nix-command but flakes requires nix-command)
   };
-
-
 
   system.stateVersion = "25.11"; # DO NOT CHANGE THIS VALUE UNLESS YOU ABSOLUTELY KNOW WHAT YOU ARE DOING
 }

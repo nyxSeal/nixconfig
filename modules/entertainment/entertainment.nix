@@ -8,7 +8,6 @@
   options.entertainment.enable = lib.mkEnableOption "entertainment, such as games and communication";
 
   config = lib.mkIf config.entertainment.enable {
-
     programs.steam = {
       enable = true;
       #remotePlay.openFirewall = true; # open ports in the firewall for Steam Remote Play

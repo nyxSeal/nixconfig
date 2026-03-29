@@ -64,7 +64,10 @@ BRIGHTNESS CONTROL
 
 ### Options
 
-- Note: All options are of type *bool* unless stated otherwise
+- Notes 
+  - All options are of type *bool* unless stated otherwise
+  - Any option under ```requires``` needs to be manually set
+  - Any options under ```other enabled options``` will be enabled automatically when enabling that option
 
 **Required**
 
@@ -115,22 +118,22 @@ Networking:
   - Type: string
 
 
-- ```printing.enable``` (default = false)
-  - Enables CUPS and some other daemons to manage printing
-  
+ 
 
 
 
-General system: 
-- ```man.enable``` (default = true)
+Services: 
+- ```services.man.enable``` (default = true)
   - Enables extra documentation (tealdeer and more man pages)
 
-- ```sound-driver.enable``` (default = false)
-  - Enables pipewire allowing sound to be played
+- ```services.sound-driver.enable``` (default = false)
+  - Enables pipewire, allowing sound to be played
+
+- ```services.printing.enable``` (default = false)
+  - Enables CUPS and some other daemons to manage printing 
 
 - ```nixpkgs.config.allowUnfree``` (default = true)
   - Enables 'unfree' software to be installed (includes steam)
-
  
 Swap: 
 - ```zram.enable``` (default = false)
@@ -140,10 +143,12 @@ Swap:
   - Enables zswap, which I'm not too confident on what it does but only enable if using swap partitions and don't use it alongside zram unless you know what you're doing
 
 
-System vendor specific:
-- ```amd-gpu.enable``` (default = false)
+
+Vendor specific:
+- ```vendor.amd-gpu.enable``` (default = false)
   - Enables extra options for AMD gpus
   - Requires: an AMD gpu
+
 
 
 Brightness:
@@ -156,53 +161,61 @@ Brightness:
 
 
 
-Desktop environment/window manager:
-
-  
+Desktop environment/window manager:  
 - ```kde.enable``` (default = false)
   - Enables the KDE Plasma desktop environment + plasma-manager for configuration
+  - Other enabled options: home manager
   
 - ```niri.enable``` (default = false)
-  - Enables the niri window manager + configuration (config not implemented yet)
-
-- ```noctalia.enable``` (default = false)
-  - Enables noctalia-shell, a minimal desktop environment for window managers. Adds useful features for window managers, including system tray/bar and application launcher
+  - Enables the niri window manager + configuration
+  - Other enabled options: home manager
 
 
 
 Browser:
-
-
 - ```librewolf.enable``` (default = false)
   - Enables the Librewolf browser
-  - Requires: A desktop environment or window manager
- 
+  - Requires: a GUI
   
 - ```floorp.enable``` (default = false)
   - Enables the Floorp browser
-  - Requires: A desktop environment or window manager
+  - Requires: a GUI
 
 - ```tor.enable``` (default = false)
   - Enables the Tor browser
-  - Requires: A desktop environment or window manager
+  - Requires: a GUI
 
 
 
-Suites of tools or apps:
+GUI applications:
+ 
+- ```guiapps.enable``` (default = false)
+  - Enables a suite of gui applications
+  - Requires: a GUI
 
-  
+- ```entertainment.enable``` (default = false)
+  - Enables games and game-related apps or features (steam, vesktop, discord, prismlauncher)
+  - Requires: a GUI, ```nixpkgs.config.AllowUnfree```
+
+- ```alacritty.enable``` (default = false)
+  - Enables the alacritty terminal emulator and related settings
+  - Other enabled options: home manager
+  - Requires: a GUI
+
+- ```noctalia.enable``` (default = false)
+  - Enables noctalia-shell, a minimal desktop environment for window managers. Adds useful features for window managers, including system tray/bar and application launcher
+  - Other enabled options: home manager
+  - Requires: a GUI
+
+
+
+Other:
+ 
 - ```development.enable``` (default = false)
   - Enables a code development suite (wip, currently just a c++ compiler)
  
 
-- ```guiapps.enable``` (default = false)
-  - Enables a suite of gui applications
-  - Requires: A desktop environment or window manager
  
-  
-- ```entertainment.enable``` (default = false)
-  - Enables games and game-related apps or features (steam, vesktop, discord, prismlauncher)
-  - Requires: ```home-manager.enable```, ```nixpkgs.config.AllowUnfree```, A desktop environment or window manager
 
 
 
@@ -212,7 +225,6 @@ Do not touch the following (these are enabled by other modules when needed):
   - Enabled when any of the desktop environments or window managers are enabled
 - ```home-manager.enable``` (default = false)
   - Enables home manager
-  - Planning on removing the file that uses this command
 
 
 
