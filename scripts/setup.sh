@@ -27,3 +27,7 @@ fi
 chmod 600 ~/.ssh/id_ed25519_github
 
 ssh-add ~/.ssh/id_ed25519_github
+
+mkdir secrets
+cd secrets
+touch secrets.nix

@@ -25,6 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,6 +58,7 @@
           inputs.home-manager.nixosModules.home-manager
           {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
           disko.nixosModules.disko
+          agenix.nixosModules.default
           ./hosts/nixy/default.nix
         ];
         specialArgs = {
@@ -66,6 +72,7 @@
           inputs.home-manager.nixosModules.home-manager
           {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
           disko.nixosModules.disko
+          agenix.nixosModules.default
           ./hosts/scout/default.nix
         ];
         specialArgs = {
